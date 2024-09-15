@@ -1,0 +1,26 @@
+---
+- name: Docker setup
+  hosts: vps_nodes
+
+  tasks:
+    - name: add docker repository
+      block:
+        - name: apt key import
+          ansible.builtin.get_url:
+            url: https://download.docker.com/linux/ubuntu/gpg
+            dest: /etc/apt/keyrings/docker.asc
+        - name: add apt source
+          ansible.builtin.apt_repository:
+            repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_lsb['codename']}} stable"
+            state: present
+    - name: docker install
+      ansible.builtin.apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: present
+        
+...
