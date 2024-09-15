@@ -121,5 +121,6 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 #       ForceCommand cvs server
 PermitRootLogin no
 
-Match 84.247.155.132#control node IPs
+#control node IPs
+Match Address 84.247.155.132
     PermitRootLogin without-passwords
