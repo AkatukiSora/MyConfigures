@@ -123,4 +123,4 @@ PermitRootLogin no
 
 #control node IPs
 Match Address 84.247.155.132
-    PermitRootLogin without-passwords
+    PermitRootLogin without-password
