@@ -120,4 +120,6 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 #       PermitTTY no
 #       ForceCommand cvs server
 PermitRootLogin no
-HostKeyAlgorithms +ssh-rsa
+
+Match 84.247.155.132#control node IPs
+    PermitRootLogin without-passwords
